@@ -1,0 +1,25 @@
+
+{
+    "extends": "@atomix/react",
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "jsx-a11y/anchor-is-valid": "off",
+      "react/prefer-stateless-function": [false, { "ignorePureComponents": true }],
+      "react/no-render-return-value": false,
+      "react/require-default-props" :false,
+      "unicorn/filename-case": false,
+      "react/forbid-prop-types": false,
+      "import/no-default-export": false,
+      "react/destructuring-assignment": false,
+      "react/no-unused-state": false,
+      "class-methods-use-this": 0,
+      "no-unused-expressions": 0,
+      "radix":"off",
+      "linebreak-style": [
+        "error",
+        "unix"
+      ]
+    }
+}

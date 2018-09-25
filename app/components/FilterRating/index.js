@@ -8,6 +8,7 @@ import { withRating } from 'components/props-proxy/withRating'
 
 @withRating
 class FilterRating extends PureComponent {
+    displayName='Filter'
     static propTypes = {
       data: PropTypes.number,
       onChange: PropTypes.func,

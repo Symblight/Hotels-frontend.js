@@ -13,7 +13,6 @@ const mapStateToProps = (state) => ({
   filters: state.reducerMainPage.filters,
 })
 
-
 export const withRating = (Component) => {
   @connect(mapStateToProps, mapDispatchToProps)
   class RatingFilter extends PureComponent {

@@ -2,7 +2,6 @@ const { resolve } = require('path')
 /* eslint-disable import/no-extraneous-dependencies */
 const {
   HotModuleReplacementPlugin,
-  BrowserPlugin,
 } = require('webpack')
 
 const HtmlWebPackPlugin = require('html-webpack-plugin')
@@ -81,7 +80,7 @@ const config = {
   },
 
   devServer: {
-    contentBase: resolve(__dirname, '..', 'public'),
+    contentBase: resolve(__dirname, 'public'),
     hot: true,
     host: 'localhost',
     historyApiFallback: true,

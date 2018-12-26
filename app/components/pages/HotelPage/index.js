@@ -16,7 +16,6 @@ const Wrapper = styled.div`
   max-width: 1124px;
   padding: 24px;
   margin-top: 2rem;
-  background-color: #fff;
 `
 const mapDispatchToProps = (dispatch) => ({
   onCreateReview: (data) => dispatch(fetchCreateReview(data)),

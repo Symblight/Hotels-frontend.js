@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 const Wrapper = styled.header`
     width: 100%;
-    background-color: #fff;
 `
 const MenuWrap = styled.div`
     margin: auto;

@@ -11,7 +11,6 @@ const Container = styled.div`
   max-width: 1124px;
   padding: 24px;
   margin: auto;
-  background-color: #fff;
 `
 
 export class NotFoundPage extends PureComponent {

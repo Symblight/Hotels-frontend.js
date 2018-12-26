@@ -4,25 +4,6 @@ import { connect } from 'react-redux'
 import { fetchHotelsList } from '../pages/MainPage/actions'
 
 
-const HOTELS = [
-  {
-    id: 0,
-    title: 'hotel1',
-  },
-  {
-    id: 1,
-    title: 'hotel2',
-  },
-  {
-    id: 2,
-    title: 'hotel3',
-  },
-  {
-    id: 3,
-    title: 'hotel4',
-  },
-]
-
 const mapDispatchToProps = (dispatch) => ({
   onHotelList: (data) => dispatch(fetchHotelsList(data)),
 })

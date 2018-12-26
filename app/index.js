@@ -11,7 +11,14 @@ import configureStore from './store'
 
 injectGlobal`
   body {
+    
+  }
+
+  #root {
+    position: relative;
+    z-index: 1001;
     background-color: #f6f5f3;
+    height: 100vh;
   }
 `
 

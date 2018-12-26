@@ -11,7 +11,6 @@ const Wrapper = styled.div`
     padding: 12px;
     justify-content: center;
     border-bottom: 1px solid #e1e4e8;
-    background-color: #e5eeee;
     width: 100%;
 `
 

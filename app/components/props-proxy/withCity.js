@@ -27,18 +27,6 @@ export const withCities = (Component) => {
       }
     }
 
-    onSelect = () => {
-      const { onCitiesList, filters, userFilters } = this.props
-
-     // onCitiesList(userFilters)
-
-      /*if (filters.cities.length === 0 && userFilters.id) {
-        if (onCitiesList) {
-          onCitiesList(userFilters)
-        }
-      }*/
-    }
-
     render() {
       const { cities, ...props } = this.props
 

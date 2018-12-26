@@ -21,7 +21,6 @@ export const withSearching = (Component) => {
     componentWillReceiveProps(nextProps) {
       const { onSearchListHotels, filters } = this.props
 
-
       if (nextProps.filters.search !== filters.search) {
         onSearchListHotels(nextProps.filters.search)
       }

@@ -11,6 +11,7 @@ const Wrapper = styled.div`
     border: 1px solid #e1e4e8;
     margin-bottom: 24px;
     text-align: center;
+    background-color: #fff;
 `
 
 const TitleWrap = styled.div`

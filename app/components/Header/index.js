@@ -7,6 +7,7 @@ const Wrapper = styled.header`
     width: 100%;
 `
 const MenuWrap = styled.div`
+    display: flex;
     margin: auto;
     width: 100%;
     max-width: 1124px;
@@ -18,10 +19,22 @@ const MenuWrap = styled.div`
     font-weight: 700;
 `
 
+const NavBrand = styled.div`
+  flex-grow: 1;
+`
+
+const NavLink = styled(Link)`
+  margin-left: 20px;
+`
+
 export const Header = () => (
   <Wrapper>
     <MenuWrap>
-      <Link to='/'>Hotels</Link>
+      <NavBrand>
+        <Link to='/'>Hotels</Link>
+      </NavBrand>
+      <NavLink to='/login'>Sign in</NavLink>
+      <NavLink to='/signup'>Sign up</NavLink>
     </MenuWrap>
   </Wrapper>
 )

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Button } from 'semantic-ui-react'
 
 import { Input } from 'components/Input'
-import { withSearching } from 'components/props-proxy/withSearching'
+import { withSearching } from 'props-proxy/withSearching'
 
 
 const Wrapper = styled.div`

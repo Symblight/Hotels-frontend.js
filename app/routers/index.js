@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { MainPage } from 'components/pages/MainPage'
-import { HotelPage } from 'components/pages/HotelPage'
-import { NotFoundPage } from 'components/pages/NotFoundPage'
+import { MainPage } from 'pages/MainPage'
+import { HotelPage } from 'pages/HotelPage'
+import { NotFoundPage } from 'pages/NotFoundPage'
+import { ProfilePage } from 'pages/ProfilePage'
+import { LoginPage } from 'pages/LoginPage'
+import { SignUpPage } from 'pages/SignUpPage'
 
 
 export class Routers extends Component {
@@ -12,6 +15,9 @@ export class Routers extends Component {
       <Switch>
         <Route exact path="/" component={MainPage} />
         <Route path="/hotel/:id" component={HotelPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/signup" component={SignUpPage} />
+        <Route path="/profile" component={ProfilePage} />
         <Route component={NotFoundPage} />
       </Switch>
     )

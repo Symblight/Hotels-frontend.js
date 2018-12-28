@@ -29,7 +29,7 @@ import {
   CHANGE_SEARCH,
   CHANGE_RATING,
   RESET_FILTERS,
-} from '../../../constants'
+} from '../../constants'
 
 
 const defaultFilters = {

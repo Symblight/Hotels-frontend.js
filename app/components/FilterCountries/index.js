@@ -4,7 +4,7 @@ import { Dropdown } from 'semantic-ui-react'
 
 import { FilterComponent } from 'components/Filter'
 
-import { withCountries } from 'components/props-proxy/withCountries'
+import { withCountries } from 'props-proxy/withCountries'
 
 
 @withCountries

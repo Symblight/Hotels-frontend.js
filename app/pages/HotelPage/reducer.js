@@ -10,7 +10,7 @@ import {
   REQUEST_CREATE_REVIEW,
   SUCCESS_CREATE_REVIEW,
   INVALID_CREATE_REVIEW,
-} from '../../../constants'
+} from '../../constants'
 
 
 const initialState = {

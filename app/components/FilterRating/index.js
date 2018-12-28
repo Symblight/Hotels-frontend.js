@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Rating } from 'semantic-ui-react'
 
 import { FilterComponent } from 'components/Filter'
-import { withRating } from 'components/props-proxy/withRating'
+import { withRating } from 'props-proxy/withRating'
 
 
 @withRating

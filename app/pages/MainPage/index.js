@@ -10,7 +10,6 @@ import { FilterCountries } from 'components/FilterCountries'
 import { FilterCost } from 'components/FilterCost'
 import { FilterRating } from 'components/FilterRating'
 import { Header } from 'components/Header'
-import { Button } from 'semantic-ui-react'
 
 import {
   fetchFilters,

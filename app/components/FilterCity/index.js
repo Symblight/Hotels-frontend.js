@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Dropdown } from 'semantic-ui-react'
 
 import { FilterComponent } from 'components/Filter'
-import { withCities } from 'components/props-proxy/withCity'
+import { withCities } from 'props-proxy/withCity'
 
 
 @withCities

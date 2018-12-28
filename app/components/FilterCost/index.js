@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Input, Label } from 'semantic-ui-react'
 
 import { FilterComponent } from 'components/Filter'
-import { withCost } from 'components/props-proxy/withCost'
+import { withCost } from 'props-proxy/withCost'
 
 
 @withCost

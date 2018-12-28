@@ -5,7 +5,7 @@ import { Rating } from 'semantic-ui-react'
 
 import { Image } from 'components/ImageComponent'
 
-import { withHotel } from 'components/props-proxy/withHotel'
+import { withHotel } from 'props-proxy/withHotel'
 
 
 const Wrapper = styled.div`

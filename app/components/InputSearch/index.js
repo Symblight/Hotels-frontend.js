@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Input } from 'components/Input'
+import { Input } from 'components'
 
 
 const Wrapper = styled.div`

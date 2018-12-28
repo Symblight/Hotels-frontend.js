@@ -84,6 +84,15 @@ const config = {
     hot: true,
     host: 'localhost',
     historyApiFallback: true,
+    stats: {
+      all: false,
+      modules: true,
+      maxModules: 0,
+      errors: true,
+      warnings: true,
+      moduleTrace: true,
+      errorDetails: true,
+    },
     port: 3001,
     watchOptions: { aggregateTimeout: 300, poll: 1000 },
     headers: {

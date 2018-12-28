@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Review } from 'components/Review'
+import { Review } from 'components'
 import { withReviews } from 'props-proxy/withReviews'
 
 

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { Button, Rating } from 'semantic-ui-react'
 
-import { Image } from 'components/ImageComponent'
+import { Image } from 'components'
 
 
 const Wrapper = styled.article`

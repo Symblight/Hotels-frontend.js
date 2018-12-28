@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Rating } from 'semantic-ui-react'
 
-import { Image } from 'components/ImageComponent'
+import { Image } from 'components'
 
 import { withHotel } from 'props-proxy/withHotel'
 

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Input, Label } from 'semantic-ui-react'
 
-import { FilterComponent } from 'components/Filter'
+import { FilterComponent } from 'components'
 import { withCost } from 'props-proxy/withCost'
 
 

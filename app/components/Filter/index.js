@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `
 
 const TitleWrap = styled.div`
-  background-color: #2980b9;
+  background-color: #3498db;
   font-weight: 700;
   color: #ffffff;
   font-size: 18px;

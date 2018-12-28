@@ -6,6 +6,8 @@ import { AppContainer } from 'react-hot-loader'
 import { injectGlobal } from 'styled-components'
 
 import { Routers } from './routers'
+import App from './App'
+
 import configureStore from './store'
 
 
@@ -13,11 +15,13 @@ injectGlobal`
   body {
     
   }
-
+  a {
+    color: #3498db;
+  }
   #root {
     position: relative;
     z-index: 1001;
-    background-color: #f6f5f3;
+    background-color: #fff;
     height: 100vh;
   }
 `
@@ -27,14 +31,12 @@ const store = configureStore()
 const rootElement = document.getElementById('root')
 
 const render = (Component) => ReactDOM.render(
-  <AppContainer>
+  <Provider store={store}>
     <Router>
-      <Provider store={store}>
-        <Component />
-      </Provider>
+      <Component />
     </Router>
-  </AppContainer>,
+  </Provider>,
   rootElement,
 )
 
-render(Routers)
+render(App)

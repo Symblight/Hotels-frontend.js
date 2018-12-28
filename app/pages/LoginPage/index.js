@@ -1,27 +1,47 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
-import { Header } from 'components/Header'
+import { FormLogin, PageWrapper } from 'components'
+import { fetchLogin } from '../../reducers/authReducer/actions'
 
 
-const Wrapper = styled.div`
-  width: 100%;
-  margin auto;
-  max-width: 1124px;
-  padding: 24px;
-  margin-top: 2rem;
-`
+const mapDispatchToProps = (dispatch) => ({
+  onLogin: (data) => dispatch(fetchLogin(data)),
+})
 
-class LoginPage extends Component {
+const mapStateToProps = (state) => ({
+  authorized: state.authReducer.authorized,
+})
+
+@connect(mapStateToProps, mapDispatchToProps)
+class LoginPage extends PureComponent {
+  static propTypes = {
+    onLogin: PropTypes.func,
+    authorized: PropTypes.bool,
+  }
+
+  handleLogin = (data) => {
+    const { onLogin } = this.props
+
+    if (onLogin) {
+      onLogin(data)
+    }
+  }
+
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    const { authorized } = this.props
+
+    if (authorized === true) {
+      return <Redirect to={from} />
+    }
+
     return (
-      <Fragment>
-        <Header />
-        <Wrapper>
-        LoginPage
-        </Wrapper>
-      </Fragment>
+      <PageWrapper>
+        <FormLogin onSubmit={this.handleLogin} />
+      </PageWrapper>
     )
   }
 }

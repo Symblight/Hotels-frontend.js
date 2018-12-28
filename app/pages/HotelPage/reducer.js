@@ -40,7 +40,7 @@ export const reducerHotelPage = (state = initialState, action) => {
     case INVALID_LOAD_HOTEL: {
       return {
         ...state,
-        didInvalid: false,
+        didInvalid: true,
         isFetching: false,
       }
     }

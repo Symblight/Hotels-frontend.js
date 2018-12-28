@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react/button-has-type */
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -27,14 +28,25 @@ const NavLink = styled(Link)`
   margin-left: 20px;
 `
 
-export const Header = () => (
+export const Header = ({ authorized, onLogout }) => (
   <Wrapper>
     <MenuWrap>
       <NavBrand>
         <Link to='/'>Hotels</Link>
       </NavBrand>
-      <NavLink to='/login'>Sign in</NavLink>
-      <NavLink to='/signup'>Sign up</NavLink>
+      { !authorized
+        ? (
+          <Fragment>
+            <NavLink to='/login'>Sign in</NavLink>
+            <NavLink to='/signup'>Sign up</NavLink>
+          </Fragment>
+        )
+        : (
+          <Fragment>
+            <NavLink to='/profile'>Profile</NavLink>
+            <NavLink to='/' onClick={onLogout}>Logout</NavLink>
+          </Fragment>
+        )}
     </MenuWrap>
   </Wrapper>
 )

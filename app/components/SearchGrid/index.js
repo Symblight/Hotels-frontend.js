@@ -3,7 +3,7 @@ import PropsTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button } from 'semantic-ui-react'
 
-import { Input } from 'components/Input'
+import { Input } from 'components'
 import { withSearching } from 'props-proxy/withSearching'
 
 

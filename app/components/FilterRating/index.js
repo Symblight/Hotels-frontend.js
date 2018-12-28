@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Rating } from 'semantic-ui-react'
 
-import { FilterComponent } from 'components/Filter'
+import { FilterComponent } from 'components'
 import { withRating } from 'props-proxy/withRating'
 
 

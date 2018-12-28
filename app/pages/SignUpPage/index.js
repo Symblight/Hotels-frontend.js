@@ -1,27 +1,47 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
-import { Header } from 'components/Header'
+import { FormSignUp, PageWrapper } from 'components'
+import { fetchSignUp } from '../../reducers/authReducer/actions'
 
 
-const Wrapper = styled.div`
-  width: 100%;
-  margin auto;
-  max-width: 1124px;
-  padding: 24px;
-  margin-top: 2rem;
-`
+const mapDispatchToProps = (dispatch) => ({
+  onSignUp: (data) => dispatch(fetchSignUp(data)),
+})
 
+const mapStateToProps = (state) => ({
+  authorized: state.authReducer.authorized,
+})
+
+@connect(mapStateToProps, mapDispatchToProps)
 class SignUpPage extends Component {
+  static propTypes = {
+    onSignUp: PropTypes.func,
+    authorized: PropTypes.bool,
+  }
+
+  handleSignUp = (data) => {
+    const { onSignUp } = this.props
+
+    if (onSignUp) {
+      onSignUp(data)
+    }
+  }
+
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    const { authorized } = this.props
+
+    if (authorized === true) {
+      return <Redirect to={from} />
+    }
+
     return (
-      <Fragment>
-        <Header />
-        <Wrapper>
-             SignUpPage
-        </Wrapper>
-      </Fragment>
+      <PageWrapper>
+        <FormSignUp onSubmit={this.handleSignUp} />
+      </PageWrapper>
     )
   }
 }

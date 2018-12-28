@@ -1,22 +1,11 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { connect } from 'react-redux'
 
-import { HotelInfo } from 'components/HotelInfo'
-import { HotelReviews } from 'components/HotelReviews'
-import { Header } from 'components/Header'
-
+import { PageWrapper, HotelReviews, HotelInfo } from 'components'
 import { fetchCreateReview } from './actions'
 
 
-const Wrapper = styled.div`
-  width: 100%;
-  margin auto;
-  max-width: 1124px;
-  padding: 24px;
-  margin-top: 2rem;
-`
 const mapDispatchToProps = (dispatch) => ({
   onCreateReview: (data) => dispatch(fetchCreateReview(data)),
 })
@@ -40,13 +29,10 @@ class HotelPage extends PureComponent {
     const { match } = this.props
 
     return (
-      <Fragment>
-        <Header />
-        <Wrapper>
-          <HotelInfo id={match.params.id} />
-          <HotelReviews id={match.params.id} onClick={this.handleClick} />
-        </Wrapper>
-      </Fragment>
+      <PageWrapper>
+        <HotelInfo id={match.params.id} />
+        <HotelReviews id={match.params.id} onClick={this.handleClick} />
+      </PageWrapper>
     )
   }
 }

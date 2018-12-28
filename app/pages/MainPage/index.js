@@ -1,15 +1,18 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 
-import { InputButtonSearch } from 'components/SearchGrid'
-import { HotelsGrids } from 'components/HotelsList'
-import { FilterCity } from 'components/FilterCity'
-import { FilterCountries } from 'components/FilterCountries'
-import { FilterCost } from 'components/FilterCost'
-import { FilterRating } from 'components/FilterRating'
-import { Header } from 'components/Header'
+import {
+  InputButtonSearch,
+  PageWrapper,
+  HotelsGrids,
+  FilterCity,
+  FilterCountries,
+  FilterCost,
+  FilterRating,
+} from 'components'
+
 
 import {
   fetchFilters,
@@ -22,10 +25,6 @@ import {
   changeReset,
 } from './actions'
 
-
-const Wrapper = styled.div`
-  
-`
 
 const Container = styled.div`
   display: flex;
@@ -169,24 +168,21 @@ class MainPage extends Component {
     const { filters } = this.props
 
     return (
-      <Fragment>
-        <Header />
-        <Wrapper>
-          <InputButtonSearch
-            onClick={this.handleClickSeacrh}
-            onChange={this.handleChangeInputSeacrh}
-            searchList={filters.searchList}
-            search={filters.search}
-          />
-          <Container>
+      <PageWrapper>
+        <InputButtonSearch
+          onClick={this.handleClickSeacrh}
+          onChange={this.handleChangeInputSeacrh}
+          searchList={filters.searchList}
+          search={filters.search}
+        />
+        <Container>
 
-            <HotelsGrids />
+          <HotelsGrids />
 
-            {this.renderFilters()}
+          {this.renderFilters()}
 
-          </Container>
-        </Wrapper>
-      </Fragment>
+        </Container>
+      </PageWrapper>
     )
   }
 }

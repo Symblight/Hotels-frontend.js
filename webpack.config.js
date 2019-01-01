@@ -1,10 +1,10 @@
-const { resolve } = require('path')
+const { resolve, join } = require('path')
 /* eslint-disable import/no-extraneous-dependencies */
 const {
   HotModuleReplacementPlugin,
 } = require('webpack')
 
-const HtmlWebPackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 
 const DIST = resolve(__dirname, 'dist')
@@ -16,14 +16,21 @@ const config = {
   mode: 'development',
 
   entry: {
-    vendor: ['semantic-ui-react'],
-    index: ['./index'],
+    // vendor: ['semantic-ui-react'],
+    index: [
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+      './index.js',
+    ],
   },
 
   output: {
-    filename: '[name].js',
-    path: DIST,
-    pathinfo: true,
+    path: resolve(__dirname, './public'),
+    filename: 'bundle.js',
+
+    publicPath: '/',
+
+    // file name pattern for chunk scripts
+    chunkFilename: '[name].[hash].js',
   },
 
   resolve: {
@@ -67,9 +74,10 @@ const config = {
   },
 
   plugins: [
-    new HtmlWebPackPlugin({
+    new HtmlWebpackPlugin({
       title: 'Hotels',
-      template: 'index.html',
+      template: '../public/index.html',
+      // hash: true
     }),
     new HotModuleReplacementPlugin(),
   ],
@@ -79,28 +87,28 @@ const config = {
     children: false,
   },
 
-  devServer: {
-    contentBase: resolve(__dirname, 'public'),
-    hot: true,
-    host: 'localhost',
-    historyApiFallback: true,
-    stats: {
-      all: false,
-      modules: true,
-      maxModules: 0,
-      errors: true,
-      warnings: true,
-      moduleTrace: true,
-      errorDetails: true,
-    },
-    port: 3001,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 },
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
-      'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
-    },
-  },
+  // devServer: {
+  //   contentBase: resolve(__dirname, 'public'),
+  //   hot: true,
+  //   host: 'localhost',
+  //   historyApiFallback: true,
+  //   stats: {
+  //     all: false,
+  //     modules: true,
+  //     maxModules: 0,
+  //     errors: true,
+  //     warnings: true,
+  //     moduleTrace: true,
+  //     errorDetails: true,
+  //   },
+  //   port: 3001,
+  //   watchOptions: { aggregateTimeout: 300, poll: 1000 },
+  //   headers: {
+  //     'Access-Control-Allow-Origin': '*',
+  //     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+  //     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
+  //   },
+  // },
 
 }
 

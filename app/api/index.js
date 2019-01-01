@@ -3,6 +3,11 @@ import axios from 'axios'
 
 const api = window.config.apiUrlServer || 'http://localhost:3333'
 
+// axios.defaults.withCredentials = true
+// axios.defaults.header = 'Access-Control-Allow-Origin: *'
+
+
+
 // GET
 export const getHotels = () => axios.get(`${api}/api/v1/hotels`)
 export const getHotel = (param) => axios.get(`${api}/api/v1/hotels/${param}`)

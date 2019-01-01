@@ -11,10 +11,11 @@ const Wrapper = styled.div`
     border: 1px solid #e1e4e8;
     margin-bottom: 24px;
     text-align: center;
+    background-color: #fff;
 `
 
 const TitleWrap = styled.div`
-  background-color: #2980b9;
+  background-color: #3498db;
   font-weight: 700;
   color: #ffffff;
   font-size: 18px;

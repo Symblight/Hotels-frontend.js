@@ -29,7 +29,7 @@ import {
   CHANGE_SEARCH,
   CHANGE_RATING,
   RESET_FILTERS,
-} from '../../../constants'
+} from '../../constants'
 
 
 const defaultFilters = {
@@ -91,7 +91,7 @@ export const reducerMainPage = (state = initialState, action) => {
     case INVALID_LOAD_HOTELS: {
       return {
         ...state,
-        didInvalid: false,
+        didInvalid: true,
         isFetching: false,
       }
     }
@@ -116,7 +116,7 @@ export const reducerMainPage = (state = initialState, action) => {
     case INVALID_LOAD_LIST_COUNTRIES: {
       return {
         ...state,
-        didInvalid: false,
+        didInvalid: true,
         isFetching: false,
       }
     }
@@ -141,7 +141,7 @@ export const reducerMainPage = (state = initialState, action) => {
     case INVALID_LOAD_LIST_CITIES: {
       return {
         ...state,
-        didInvalid: false,
+        didInvalid: true,
         isFetching: false,
       }
     }
@@ -164,7 +164,7 @@ export const reducerMainPage = (state = initialState, action) => {
     case INVALID_CHANGE_FILTERS: {
       return {
         ...state,
-        didInvalid: false,
+        didInvalid: true,
         isFetching: false,
       }
     }
@@ -190,8 +190,8 @@ export const reducerMainPage = (state = initialState, action) => {
     case INVALID_SEARCH: {
       return {
         ...state,
-        didInvalid: false,
-        isFetching: true,
+        didInvalid: true,
+        isFetching: false,
       }
     }
 
@@ -213,8 +213,8 @@ export const reducerMainPage = (state = initialState, action) => {
     case INVALID_SEARCH_HOTELS: {
       return {
         ...state,
-        didInvalid: false,
-        isFetching: true,
+        didInvalid: true,
+        isFetching: false,
       }
     }
 

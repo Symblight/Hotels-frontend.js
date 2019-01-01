@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 
-import { reducerMainPage } from 'components/pages/MainPage/reducer'
-import { reducerHotelPage } from 'components/pages/HotelPage/reducer'
+import { reducerMainPage } from 'pages/MainPage/reducer'
+import { reducerHotelPage } from 'pages/HotelPage/reducer'
+import { authReducer } from './authReducer'
 
 
 export default combineReducers({
   reducerMainPage,
   reducerHotelPage,
+  authReducer,
 })

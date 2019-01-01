@@ -10,7 +10,7 @@ import {
   REQUEST_CREATE_REVIEW,
   SUCCESS_CREATE_REVIEW,
   INVALID_CREATE_REVIEW,
-} from '../../../constants'
+} from '../../constants'
 
 
 const initialState = {
@@ -40,7 +40,7 @@ export const reducerHotelPage = (state = initialState, action) => {
     case INVALID_LOAD_HOTEL: {
       return {
         ...state,
-        didInvalid: false,
+        didInvalid: true,
         isFetching: false,
       }
     }

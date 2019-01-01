@@ -1,12 +1,11 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchFilters, fetchSearchHotels } from '../pages/MainPage/actions'
+import { fetchFilters } from '../pages/MainPage/actions'
 
 
 const mapDispatchToProps = (dispatch) => ({
   onChangeFilters: (data) => dispatch(fetchFilters(data)),
-  onSearchListHotels: (data) => dispatch(fetchSearchHotels(data)),
 })
 
 const mapStateToProps = (state) => ({
@@ -14,16 +13,15 @@ const mapStateToProps = (state) => ({
   filters: state.reducerMainPage.filters,
 })
 
-
-export const withSearching = (Component) => {
+export const withRating = (Component) => {
   @connect(mapStateToProps, mapDispatchToProps)
-  class SearchFilter extends PureComponent {
+  class RatingFilter extends PureComponent {
     componentWillReceiveProps(nextProps) {
-      const { onSearchListHotels, filters } = this.props
+      const { onChangeFilters, userFilters } = this.props
 
 
-      if (nextProps.filters.search !== filters.search) {
-        onSearchListHotels(nextProps.filters.search)
+      if (nextProps.userFilters.rating !== userFilters.rating) {
+        onChangeFilters(nextProps.userFilters)
       }
     }
 
@@ -33,5 +31,5 @@ export const withSearching = (Component) => {
       return (<Component {...props} />)
     }
   }
-  return SearchFilter
+  return RatingFilter
 }

@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Review } from 'components/Review'
-import { withReviews } from 'components/props-proxy/withReviews'
+import { Review } from 'components'
+import { withReviews } from 'props-proxy/withReviews'
 
 
 const Wrapper = styled.div`

@@ -3,15 +3,14 @@ import PropsTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button } from 'semantic-ui-react'
 
-import { Input } from 'components/Input'
-import { withSearching } from 'components/props-proxy/withSearching'
+import { Input } from 'components'
+import { withSearching } from 'props-proxy/withSearching'
 
 
 const Wrapper = styled.div`
     padding: 12px;
     justify-content: center;
     border-bottom: 1px solid #e1e4e8;
-    background-color: #e5eeee;
     width: 100%;
 `
 

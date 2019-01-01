@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Dropdown } from 'semantic-ui-react'
 
-import { FilterComponent } from 'components/Filter'
+import { FilterComponent } from 'components'
 
-import { withCountries } from 'components/props-proxy/withCountries'
+import { withCountries } from 'props-proxy/withCountries'
 
 
 @withCountries

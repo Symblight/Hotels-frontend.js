@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
 
-import { PageWrapper } from 'components'
+import { PageWrapper, Hero } from 'components'
 
 
 const Wrapper = styled.section`
@@ -40,27 +40,6 @@ const FieldTitle = styled.strong`
   width: 145px;
 `
 
-const Avatar = styled.div`
-  width: 140px;
-  height: 140px;
-
-  border-radius: 50%;
-
-  display: flex;
-
-  justify-content: center;
-  align-items: center;
-
-  font-size: 62px;
-  font-weight: 700;
-
-  margin-bottom: 10px;
-
-  background-color: #3498db;
-
-  color: #fff;
-`
-
 const Title = styled.h2`
   font-weight: bold;
   font-size: 36px;
@@ -79,22 +58,16 @@ class ProfilePage extends Component {
     user: PropTypes.object,
   }
 
-  getFirstLetter(value) {
-    return value.charAt(0).toUpperCase()
-  }
-
   render() {
     const { user } = this.props
 
     if (!user) return null
 
-    const LETTER = this.getFirstLetter(user.username)
-
     return (
       <PageWrapper>
         <Wrapper>
           <HeroArticle>
-            <Avatar>{LETTER}</Avatar>
+            <Hero value={user.username} />
             <Title>{user.username}</Title>
           </HeroArticle>
           <Content>

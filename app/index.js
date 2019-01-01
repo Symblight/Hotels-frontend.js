@@ -2,11 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { HashRouter as Router } from 'react-router-dom'
-import { AppContainer } from 'react-hot-loader'
 import { injectGlobal } from 'styled-components'
 
-import { Routers } from './routers'
-import App from './App'
+import App from './Root'
 
 import configureStore from './store'
 

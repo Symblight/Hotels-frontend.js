@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Input, Button, Form, TextArea } from 'semantic-ui-react'
 import moment from 'moment'
+import { Hero } from 'components'
 
 
 const Wrapper = styled.div`
@@ -17,7 +18,7 @@ const ReviewEditWrap = styled.div`
 
 const ReviewWrap = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 12px;
     margin-bootom: 12px;
 `
@@ -31,6 +32,12 @@ const ReviewText = styled.div`
 const DateWrap = styled.span`
     color: #5f5f5f;
     font-size: 13px;
+`
+
+const Article = styled.article`
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px; 
 `
 
 export class Review extends PureComponent {
@@ -91,13 +98,16 @@ export class Review extends PureComponent {
 
       return (
         <ReviewWrap>
-          <h3>{data.title}</h3>
-          <ReviewText>{data.text}</ReviewText>
-          <DateWrap>
-            {
+          <Hero value="guest" size="medium" />
+          <Article>
+            <h3>{data.title}</h3>
+            <ReviewText>{data.text}</ReviewText>
+            <DateWrap>
+              {
                 moment(data.create_at).add(1, 'day').add(24, 'hours').format('LLL')
             }
-          </DateWrap>
+            </DateWrap>
+          </Article>
         </ReviewWrap>
       )
     }

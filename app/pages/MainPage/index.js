@@ -11,6 +11,7 @@ import {
   FilterCountries,
   FilterCost,
   FilterRating,
+  Notification,
 } from 'components'
 
 
@@ -44,6 +45,7 @@ const mapStateToProps = (state) => ({
   hotels: state.reducerMainPage.hotels,
   userFilters: state.reducerMainPage.userFilters,
   filters: state.reducerMainPage.filters,
+  error: state.reducerMainPage.error,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -64,10 +66,14 @@ class MainPage extends Component {
     onChangeFilters: PropTypes.func,
     userFilters: PropTypes.object,
     filters: PropTypes.object,
+
     onSelectCountry: PropTypes.func,
     onSelectCity: PropTypes.func,
     onChangeCost: PropTypes.func,
+    onChangeSearch: PropTypes.func,
+    onChangeRating: PropTypes.func,
     onSearchListHotels: PropTypes.func,
+    onReset: PropTypes.func,
   }
 
   componentWillReceiveProps(nextProps) {
@@ -165,7 +171,7 @@ class MainPage extends Component {
   }
 
   render() {
-    const { filters } = this.props
+    const { filters, error } = this.props
 
     return (
       <PageWrapper>
@@ -178,6 +184,8 @@ class MainPage extends Component {
         <Container>
 
           <HotelsGrids />
+
+          <Notification data={error} />
 
           {this.renderFilters()}
 

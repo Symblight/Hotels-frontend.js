@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { Message } from 'semantic-ui-react'
 
 import { Header } from 'components'
 import { Routers } from './routers'
 
 import { fetchAuth, fetchLogout } from './reducers/authReducer/actions'
 
+
+const MessageStyled = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 10px
+`
 
 const mapDispatchToProps = (dispatch) => ({
   onAuth: () => dispatch(fetchAuth()),
@@ -16,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   authorized: state.authReducer.authorized,
+  error: state.authReducer.error,
 })
 
 class App extends Component {

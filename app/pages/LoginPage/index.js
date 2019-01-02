@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import { FormLogin, PageWrapper } from 'components'
+import { FormLogin, PageWrapper, Notification } from 'components'
 import { fetchLogin } from '../../reducers/authReducer/actions'
 
 
@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   authorized: state.authReducer.authorized,
+  error: state.authReducer.error,
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -32,7 +33,7 @@ class LoginPage extends PureComponent {
 
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { authorized } = this.props
+    const { authorized, error } = this.props
 
     if (authorized === true) {
       return <Redirect to={from} />
@@ -41,6 +42,7 @@ class LoginPage extends PureComponent {
     return (
       <PageWrapper>
         <FormLogin onSubmit={this.handleLogin} />
+        <Notification data={error} />
       </PageWrapper>
     )
   }

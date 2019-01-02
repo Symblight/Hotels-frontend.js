@@ -15,6 +15,7 @@ import {
 
 const initialState = {
   hotel: {},
+  error: '',
   reviews: [],
   didInvalid: false,
   isFetching: false,
@@ -63,6 +64,7 @@ export const reducerHotelPage = (state = initialState, action) => {
     case INVALID_LOAD_REVIEWS: {
       return {
         ...state,
+        error: action.payload,
         didInvalid: false,
         isFetching: false,
       }

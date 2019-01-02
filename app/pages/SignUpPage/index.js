@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 
-import { FormSignUp, PageWrapper } from 'components'
+import { FormSignUp, PageWrapper, Notification } from 'components'
 import { fetchSignUp } from '../../reducers/authReducer/actions'
 
 
@@ -13,6 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   authorized: state.authReducer.authorized,
+  error: state.authReducer.error,
 })
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -32,7 +33,7 @@ class SignUpPage extends Component {
 
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { authorized } = this.props
+    const { authorized, error } = this.props
 
     if (authorized === true) {
       return <Redirect to={from} />
@@ -41,6 +42,7 @@ class SignUpPage extends Component {
     return (
       <PageWrapper>
         <FormSignUp onSubmit={this.handleSignUp} />
+        <Notification data={error} />
       </PageWrapper>
     )
   }

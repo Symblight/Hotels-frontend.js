@@ -52,6 +52,7 @@ export const authReducer = (state = initialState, action) => {
     case INVALID_LOGIN_USER: {
       return {
         ...state,
+        error: action.payload,
         authorized: false,
         didInvalid: true,
         isFetching: false,

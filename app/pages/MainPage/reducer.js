@@ -52,6 +52,7 @@ const defaultFilters = {
 
 const initialState = {
   hotels: [],
+  error: '',
   filters: {
     search: '',
     cities: [],
@@ -73,6 +74,11 @@ const initialState = {
 
 export const reducerMainPage = (state = initialState, action) => {
   switch (action.type) {
+    case REQUEST_SEARCH_HOTELS:
+    case REQUEST_SEARCH:
+    case REQUEST_CHANGE_FILTERS:
+    case REQUEST_LOAD_LIST_COUNTRIES:
+    case REQUEST_LOAD_LIST_CITIES:
     case REQUEST_LOAD_HOTELS: {
       return {
         ...state,
@@ -88,20 +94,6 @@ export const reducerMainPage = (state = initialState, action) => {
         isFetching: false,
       }
     }
-    case INVALID_LOAD_HOTELS: {
-      return {
-        ...state,
-        didInvalid: true,
-        isFetching: false,
-      }
-    }
-    case REQUEST_LOAD_LIST_COUNTRIES: {
-      return {
-        ...state,
-        didInvalid: false,
-        isFetching: true,
-      }
-    }
     case SUCCESS_LOAD_LIST_COUNTRIES: {
       return {
         ...state,
@@ -113,18 +105,15 @@ export const reducerMainPage = (state = initialState, action) => {
         isFetching: false,
       }
     }
+    case INVALID_LOAD_HOTELS:
+    case INVALID_CHANGE_FILTERS:
+    case INVALID_LOAD_LIST_CITIES:
     case INVALID_LOAD_LIST_COUNTRIES: {
       return {
         ...state,
+        error: action.payload,
         didInvalid: true,
         isFetching: false,
-      }
-    }
-    case REQUEST_LOAD_LIST_CITIES: {
-      return {
-        ...state,
-        didInvalid: false,
-        isFetching: true,
       }
     }
     case SUCCESS_LOAD_LIST_CITIES: {
@@ -138,40 +127,10 @@ export const reducerMainPage = (state = initialState, action) => {
         isFetching: false,
       }
     }
-    case INVALID_LOAD_LIST_CITIES: {
-      return {
-        ...state,
-        didInvalid: true,
-        isFetching: false,
-      }
-    }
-
-    case REQUEST_CHANGE_FILTERS: {
-      return {
-        ...state,
-        didInvalid: false,
-        isFetching: true,
-      }
-    }
     case SUCCESS_CHANGE_FILTERS: {
       return {
         ...state,
         hotels: action.payload,
-        didInvalid: false,
-        isFetching: false,
-      }
-    }
-    case INVALID_CHANGE_FILTERS: {
-      return {
-        ...state,
-        didInvalid: true,
-        isFetching: false,
-      }
-    }
-
-    case REQUEST_SEARCH: {
-      return {
-        ...state,
         didInvalid: false,
         isFetching: false,
       }
@@ -191,14 +150,6 @@ export const reducerMainPage = (state = initialState, action) => {
       return {
         ...state,
         didInvalid: true,
-        isFetching: false,
-      }
-    }
-
-    case REQUEST_SEARCH_HOTELS: {
-      return {
-        ...state,
-        didInvalid: false,
         isFetching: false,
       }
     }

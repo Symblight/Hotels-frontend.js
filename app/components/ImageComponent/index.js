@@ -7,4 +7,4 @@ const Wrapper = styled.img`
     width: 200px;
 `
 
-export const Image = ({ src, ...props }) => (<Wrapper src={src} {...props} />)
+export const Image = ({ src, className, ...props }) => (<Wrapper className={className} src={src} {...props} />)
